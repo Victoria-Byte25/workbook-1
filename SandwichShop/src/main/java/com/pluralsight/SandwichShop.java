@@ -14,17 +14,30 @@ public class SandwichShop {
         int size = scanner.nextInt();
 
         double basePrice = 0;
+        double loadedExtra = 0;
+
         if (size == 1) {
             basePrice = 5.45;
+            loadedExtra = 1.00;
+
         } else if (size == 2) {
             basePrice = 8.95;
+            loadedExtra = 1.75;
+
         } else {
             System.out.println("Invalid selection. Exiting.");
             return;
         }
 
         // Prompt for age
-        System.out.print("Enter your age: ");
+        System.out.print("Would you like your sandwich loaded? (yes/no): ");
+        scanner.nextLine();
+        String loaded = scanner.nextLine().toLowerCase();
+
+        if (loaded.equals("yes")) {
+            basePrice += loadedExtra;
+        }
+        System.out.print("Enter your age:");
         int age = scanner.nextInt();
 
         double discount = 0;
